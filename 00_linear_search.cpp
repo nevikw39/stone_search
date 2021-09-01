@@ -20,7 +20,11 @@ int main()
     vector<int> v = {8, 27, 2021, 110, 20};
     for (const int &i : v)
         cout << i << ' ';
-    cout << "\nThe minimum element that greater than or equal to 110 is " << linear_search(v.begin(), v.end(), 110) << '\n';
+    int result = linear_search(v.begin(), v.end(), 110);
+    if (result != INT_MAX)
+        cout << "\nThe minimum element that greater than or equal to 110 is " << result << '\n';
+    else
+        cout << "Each element is less than 110\n";
 
     int n;
     cin >> n;
@@ -31,6 +35,10 @@ int main()
         i = _rand();
         cout << i << ' ';
     }
-    cout << "\nThe minimum element that greater than or equal to 110 is " << linear_search(v.begin(), v.end(), 110) << '\n';
+    result = linear_search(v.begin(), v.end(), 110);
+    if (result != INT_MAX)
+        cout << "\nThe minimum element that greater than or equal to 110 is " << result << '\n';
+    else
+        cout << "Each element is less than 110\n";
     return 0;
 }
