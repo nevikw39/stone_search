@@ -2,7 +2,6 @@
 #include <vector>
 #include <climits>   // for INT_MAX
 #include <random>    // for mt19937
-#include <algorithm> // for find()
 
 using namespace std;
 
