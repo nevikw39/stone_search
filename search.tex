@@ -1,0 +1,102 @@
+\documentclass{beamer}
+
+\usepackage{beamerthemesplit} % // Activate for custom appearance
+
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{algpseudocode}
+\usepackage{listings}
+
+\lstset
+{
+  breaklines=true,
+  breakatwhitespace=true,
+}
+
+\definecolor{nthu}{HTML}{7F1084}
+\definecolor{secondary}{HTML}{910A17}
+\definecolor{accent}{HTML}{410A91}
+\definecolor{bg}{HTML}{171717}
+
+\setbeamercolor{normal text}{fg=white, bg=bg}
+\setbeamercolor{alerted text}{fg=secondary}
+\setbeamercolor{example text}{fg=accent}
+\setbeamercolor{background}{parent=normal text}
+\setbeamercolor{background canvas}{parent=background}
+\setbeamercolor{palette primary}{fg=white, bg=secondary}
+\setbeamercolor{palette secondary}{use=structure, fg=white, bg=nthu}
+\setbeamercolor{palette tertiary}{use=structure, fg=white, bg=accent}
+\setbeamercolor{block title}{fg=white, bg=nthu!69!accent}
+\setbeamercolor{block body}{fg=white, bg=accent!69!nthu}
+\setbeamercolor{titlelike}{fg=white, bg=nthu}
+\setbeamercolor{structure}{fg=nthu!64}
+\usebeamercolor{structure}
+%\usecolortheme[named=nthu]{structure}
+\useinnertheme{rounded}
+\useoutertheme{infolines}
+\usefonttheme{serif}
+
+\xeCJKsetup{CJKglue=\hspace{0pt plus .12 \baselineskip }}
+\xeCJKsetup{RubberPunctSkip=false}
+\xeCJKsetup{PunctStyle=plain}
+\xeCJKsetup{CheckSingle=true}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 2pt
+
+\setCJKmainfont{Songti TC}
+\setCJKsansfont{Apple LiGothic}
+\setmonofont{Cascadia Code PL}
+
+\title{搜尋演算法與資料結構}
+\subtitle{二分搜尋、二元搜尋樹⋯}
+\author{nevikw39}
+\institute{點石學園}
+\date{\today}
+
+\AtBeginSection{
+	\frame
+	{
+%		\frametitle{Outline}
+		\sectionpage
+		\tableofcontents[sectionstyle=show/shaded, subsectionstyle=show/show/shaded, subsubsectionstyle=show/show/show/hide]
+	}
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\frame{\tableofcontents}
+
+\section{Abstract}
+
+\frame
+{
+	\frametitle{Introduction to Searching}
+	
+	\begin{definition}[Search]
+		Find elements in an array such that some condition is true.
+	\end{definition}
+}
+
+\frame
+{
+	\frametitle{Linear Search}
+	
+	\begin{algorithmic}
+		\Procedure{Linear Search}{$*begin, *end, target$}
+			\State$result\gets\infty$
+            \For{$itr\in[begin, end)$}
+            	\If{$*itr\geq target\land *itr < result$}
+					\State$result\gets *itr$
+				\EndIf
+            \EndFor
+            \State\Return$result$
+        \EndProcedure
+	\end{algorithmic}
+}
+
+\end{document}
