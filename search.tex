@@ -78,13 +78,15 @@
 	\frametitle{Introduction to Searching}
 	
 	\begin{definition}[Search]
-		Find elements in an array such that some condition is true.
+		Find elements in an array such that some condition be satisfied.
 	\end{definition}
 }
 
+\subsection{Linear Search}
+
 \frame
 {
-	\frametitle{Linear Search}
+	\frametitle{Pseudocode}
 	
 	\begin{algorithmic}
 		\Procedure{Linear Search}{$*begin, *end, target$}
@@ -97,6 +99,171 @@
             \State\Return$result$
         \EndProcedure
 	\end{algorithmic}
+}
+
+\frame
+{
+	\frametitle{Efficiency}
+	
+	If there are plenty of queries, then \textsc{Linear Search} may not fit in time limit.\pause
+	
+	Therefore, we could do some preprocess such as sorting and utilize the monotonicity to improve the efficiency.
+}
+
+\section{Binary Search}
+
+\frame
+{
+	\frametitle{Efficient Way to Search in Ordered Sequence}
+	\framesubtitle{Divide and Conquer}
+	
+	\begin{description}
+		\item<1->[Divide]Split array into two subarrays ($b = 2, O(1)$)
+		\item<2->[Conquer]Search the subarray in which the target is ($a = 1$)
+		\item<3->[Combine]Nothing to do
+	\end{description}
+}
+
+\frame
+{
+	\begin{quotation}
+		``Although the basic idea of binary search is comparatively straightforward, the details can be surprisingly tricky.''
+	\end{quotation}
+	\begin{flushright}
+		--- Knuth, D. E.
+	\end{flushright}
+}
+
+\subsection{Typical Approach}
+
+\frame
+{
+	\frametitle{Pseudocode: Recursion}
+	
+	\begin{algorithmic}
+		\Procedure{Binary Search}{$*begin, *end, target$}
+		\If{$begin = end$}
+			\State\Return$begin$
+		\EndIf
+		\State$mid\gets\frac{begin+end}{2}$
+		\If{$target < *mid$}
+			\State\Return\Call{Binary Search}{begin, mid, target}
+		\ElsIf{$target = *mid$}
+			\State\Return$mid$
+		\Else
+			\State\Return\Call{Binary Search}{mid+1, end, target}
+		\EndIf
+        \EndProcedure
+	\end{algorithmic}
+}
+
+\frame
+{
+	\frametitle{Tail Call \& Tail Recursion}
+	
+	\begin{definition}
+		It's called \textbf{Tail Call} that the return statement of a function is to call some function.
+		
+		If the called one is the calling one itself, it's called \textbf{Tail Recursion}.
+	\end{definition}
+	
+	\pause
+	
+	On top of the fact that recursion requires quite a few resources, we could use loop to attain better performance.
+}
+
+\frame
+{
+	\frametitle{Pseudocode: Loop}
+	
+	\begin{algorithmic}
+		\Procedure{Binary Search}{$*begin, *end, target$}
+		\While{$begin\neq end$}
+			\State$mid\gets\frac{begin+end}{2}$
+			\If{$target < *mid$}
+    			\State$end\gets mid$
+    		\ElsIf{$target = *mid$}
+    			\State\Return{mid}
+    		\Else
+    			\State$begin\gets mid+1$
+			\EndIf
+		\EndWhile
+		\State\Return$begin$
+        \EndProcedure
+	\end{algorithmic}
+}
+
+\frame{
+	\frametitle{Example}
+	\framesubtitle{$target=110$}
+	
+	\begin{center}
+        \begin{tikzpicture}[scale=0.85, transform shape]
+        	\only<1>{
+        		\foreach \x/\val/\col in {0/8/accent,1/20/gray,2/27/nthu,3/110/gray,4/2021/gray,5//secondary}{
+        			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
+        		}
+        	}
+			\only<2>{
+        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/27/accent,3/110/nthu,4/2021/gray,5//secondary}{
+        			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
+        		}
+        	}
+			\only<3>{
+        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/27/gray,3/110/nthu,4/2021/gray,5//gray}{
+        			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
+        		}
+        	}
+		\end{tikzpicture}
+	\end{center}
+}
+
+\subsection{Alternative Approach}
+
+\frame
+{
+	\frametitle{Pseudocode}
+	
+	\begin{algorithmic}
+		\Procedure{Binary Search}{$*begin, *end, target$}
+    		\For{$n\gets end-begin, jump\gets n/2; jump>0; jump\gets jump/2$}
+    			\While{$begin+jump<end\land *(begin+jump)<target$}
+    				\State$begin\gets begin+jump$
+    			\EndWhile
+    		\EndFor
+			\State\Return$begin+1$
+        \EndProcedure
+	\end{algorithmic}
+}
+
+\frame{
+	\frametitle{Example}
+	\framesubtitle{$target=110$}
+	
+	\begin{center}
+        \begin{tikzpicture}[scale=0.85, transform shape]
+        	\only<1>{
+        		\foreach \x/\val/\col in {0/8/accent,1/20/gray,2/27/secondary,3/110/gray,4/2021/gray}{
+        			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
+        		}
+        	}
+			\only<2>{
+        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/27/accent,3/110/gray,4/2021/secondary}{
+        			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
+        		}
+        	}
+			\only<3>{
+        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/27/accent,3/110/secondary,4/2021/gray}{
+        			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
+        		}
+        	}
+			\only<4>{
+        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/27/accent,3/110/gray,4/2021/gray}{
+        			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
+        		}
+        	}
+		\end{tikzpicture}
+	\end{center}
 }
 
 \end{document}
