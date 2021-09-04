@@ -200,17 +200,17 @@
 	\begin{center}
         \begin{tikzpicture}[scale=0.85, transform shape]
         	\only<1>{
-        		\foreach \x/\val/\col in {0/8/accent,1/20/gray,2/27/nthu,3/110/gray,4/2021/gray,5//secondary}{
+        		\foreach \x/\val/\col in {0/8/accent,1/20/gray,2/20/gray,3/27/gray,4/27/nthu,5/27/gray,6/110/gray,7/110/gray,8/2021/gray,9//secondary}{
         			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
         		}
         	}
 			\only<2>{
-        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/27/accent,3/110/nthu,4/2021/gray,5//secondary}{
+        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/20/gray,3/27/gray,4/27/accent,5/27/gray,6/110/nthu,7/110/gray,8/2021/gray,9//secondary}{
         			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
         		}
         	}
 			\only<3>{
-        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/27/gray,3/110/nthu,4/2021/gray,5//gray}{
+        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/20/gray,3/27/gray,4/27/gray,5/27/gray,6/110/nthu,7/110/gray,8/2021/gray,9//gray}{
         			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
         		}
         	}
@@ -243,22 +243,27 @@
 	\begin{center}
         \begin{tikzpicture}[scale=0.85, transform shape]
         	\only<1>{
-        		\foreach \x/\val/\col in {0/8/accent,1/20/gray,2/27/secondary,3/110/gray,4/2021/gray}{
+        		\foreach \x/\val/\col in {0/8/accent,1/20/gray,2/20/gray,3/27/gray,4/27/secondary,5/27/gray,6/110/gray,7/110/gray,8/2021/gray}{
         			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
         		}
         	}
 			\only<2>{
-        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/27/accent,3/110/gray,4/2021/secondary}{
+        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/20/gray,3/27/gray,4/27/accent,5/27/gray,6/110/gray,7/110/gray,8/2021/secondary}{
         			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
         		}
         	}
 			\only<3>{
-        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/27/accent,3/110/secondary,4/2021/gray}{
+        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/20/gray,3/27/gray,4/27/accent,5/27/gray,6/110/secondary,7/110/gray,8/2021/gray}{
         			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
         		}
         	}
 			\only<4>{
-        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/27/accent,3/110/gray,4/2021/gray}{
+        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/20/gray,3/27/gray,4/27/accent,5/27/secondary,6/110/gray,7/110/gray,8/2021/gray}{
+        			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
+        		}
+        	}
+			\only<5>{
+        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/20/gray,3/27/gray,4/27/gray,5/27/nthu,6/110/gray,7/110/gray,8/2021/gray}{
         			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
         		}
         	}
@@ -271,7 +276,7 @@
 \frame
 {
 	\frametitle{\ttfamily std::lower\_bound()}
-	\framesubtitle{Find the minimum element that is greater than or equal to $target$}
+	\framesubtitle{Find the minimum element that is no less than (greater than or equal to) $target$}
 	
 	\lstinputlisting[language=C++, firstline=36, lastline=40]{04_binary_search_builtin.cpp}
 }
@@ -282,6 +287,97 @@
 	\framesubtitle{Find the minimum element that is greater than $target$}
 	
 	\lstinputlisting[language=C++, firstline=41, lastline=45]{04_binary_search_builtin.cpp}
+}
+
+\frame{
+	\frametitle{Examples}
+	\framesubtitle{$target=110$}
+	
+	\begin{center}
+        \begin{tikzpicture}[scale=0.85, transform shape]
+        	\only<1>{
+        		\foreach \x/\val/\col in {0/8/gray,1/20/gray,2/20/gray,3/27/gray,4/27/gray,5/27/gray,6/110/gray,7/110/gray,8/2021/gray}{
+        			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
+        		}
+        	}
+        	\only<2>{
+        		\foreach \x/\val/\col in {0/8/accent,1/20/accent,2/20/accent,3/27/accent,4/27/accent,5/27/accent,6/110/gray,7/110/gray,8/2021/gray}{
+        			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
+        		}
+        	}
+        	\only<3>{
+        		\foreach \x/\val/\col in {0/8/accent,1/20/accent,2/20/accent,3/27/accent,4/27/accent,5/27/accent,6/110/nthu,7/110/nthu,8/2021/gray}{
+        			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
+        		}
+        	}
+        	\only<4>{
+        		\foreach \x/\val/\col in {0/8/accent,1/20/accent,2/20/accent,3/27/accent,4/27/accent,5/27/accent,6/110/nthu,7/110/nthu,8/2021/secondary}{
+        			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
+        		}
+        	}
+		\end{tikzpicture}
+	\end{center}
+}
+
+\frame
+{
+	\frametitle{Examples}
+	\framesubtitle{\ttfamily std::lower\_bound()}
+	
+	If vector $v$ is sorted:\pause
+	
+	\begin{itemize}
+		\item Range of elements that less than $x$, $\{i\ |\ \forall i\in v\implies i<x\}$:\\\pause
+		$[v.begin(), lower\_bound(v.begin(), v.end(), x))$\pause
+		\item Range of elements that no less than (greater than or equal to) $x$, $\{i\ |\ \forall i\in v\implies i\nless(\geq) x\}$:\\\pause
+		$[lower\_bound(v.begin(), v.end(), x), v.end())$
+	\end{itemize}
+}
+
+\frame
+{
+	\frametitle{Examples}
+	\framesubtitle{\ttfamily std::upper\_bound()}
+	
+	If vector $v$ is sorted:\pause
+	
+	\begin{itemize}
+		\item Range of elements that no greater than (less than or equal to) $x$, $\{i\ |\ \forall i\in v\implies i\ngtr(\leq) x\}$:\\\pause
+		$[v.begin(), upper\_bound(v.begin(), v.end(), x))$\pause
+		\item Range of elements that greater than $x$, $\{i\ |\ \forall i\in v\implies i>x\}$:\\\pause
+		$[upper\_bound(v.begin(), v.end(), x), v.end())$	\end{itemize}
+}
+
+\frame
+{
+	\frametitle{Examples}
+	
+	If vector $v$ is sorted:\pause
+	
+	\begin{itemize}
+		\item Range of elements that equal to $x$, $\{i\ |\ \forall i\in v\implies i = x\}:$\\\pause
+		$[lower\_bound(v.begin(), v.end(), x), upper\_bound(v.begin(), v.end(), x))$\pause
+		\item Range of elements that greater than $x$ and less than $y$, $\{i\ |\ \forall i\in v\implies x < i < y\}:$\\\pause
+		$[upper\_bound(v.begin(), v.end(), x), lower\_bound(v.begin(), v.end(), y))$\pause
+		\item Range of elements that greater than or equal to $x$ and less than or equal to $y$, $\{i\ |\ \forall i\in v\implies x\leq i\leq y\}:$\\\pause
+		$[lower\_bound(v.begin(), v.end(), x), upper\_bound(v.begin(), v.end(), y))$
+	\end{itemize}
+}
+
+\frame
+{
+	\frametitle{Triangles}
+	\framesubtitle{AtCoder Beginner Contest 143 p. D}
+	
+	\begin{block}{Condition to Construct a Triangle}
+		Let $a, b, c$ be the three edges of the triangle, where $a\leq b\leq c$, then $b - a < c < a + b$
+	\end{block}
+	
+	\pause
+	
+	Lest we may count duplicate ones, we could enumerate the shorter edges and search the range of the third edge, whose closed left end is upper bound of $b-a$ and opened right end is lower bound of $a+b$.\pause
+	
+	Note that because $c$ should be the longest edge, we mustn't search from $v.begin()$.
 }
 
 \end{document}
