@@ -16,12 +16,12 @@ int linear_search(vector<int>::iterator begin, vector<int>::iterator end, int ta
 
 int main()
 {
-    vector<int> v = {8, 27, 2021, 110, 20};
+    vector<int> v = {8, 27, 2021, 110, 20, 110, 27, 20, 27};
     for (const int &i : v)
         cout << i << ' ';
     int result = linear_search(v.begin(), v.end(), 110);
     if (result != INT_MAX)
-        cout << "\nThe minimum element that greater than or equal to 110 is " << result << '\n';
+        cout << "\nThe minimum element that no less than (greater than or equal to) 110 is " << result << '\n';
     else
         cout << "Each element is less than 110\n";
 
@@ -36,7 +36,7 @@ int main()
     }
     result = linear_search(v.begin(), v.end(), 110);
     if (result != INT_MAX)
-        cout << "\nThe minimum element that greater than or equal to 110 is " << result << '\n';
+        cout << "\nThe minimum element that no less than (greater than or equal to) 110 is " << result << '\n';
     else
         cout << "Each element is less than 110\n";
     return 0;
