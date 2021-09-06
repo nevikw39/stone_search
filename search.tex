@@ -80,6 +80,14 @@
 	\begin{definition}[Search]
 		Find elements in an array such that some condition be satisfied.
 	\end{definition}
+	
+	\pause
+	
+	\begin{itemize}
+		\item If there is an element less than, equal to or greater than $x$??\\
+		How many elements less than, equal to or greater than $x$??\pause
+		\item The problem we are concerned about is the relation rather than order.
+	\end{itemize}
 }
 
 \subsection{Linear Search}
@@ -378,6 +386,26 @@
 	Lest we may count duplicate ones, we could enumerate the shorter edges and search the range of the third edge, whose closed left end is upper bound of $b-a$ and opened right end is lower bound of $a+b$.\pause
 	
 	Note that because $c$ should be the longest edge, we mustn't search from $v.begin()$.
+}
+
+\frame
+{
+	\frametitle{Tsundoku}
+	\framesubtitle{AtCoder Beginner Contest 172 p. C}
+	
+	\begin{block}{Problem}
+		Find the max $i+j$ such that $\sum_{k=0}^iA_k + \sum_{l=0}^jB_l \leq K$
+	\end{block}
+	
+	\pause
+	
+	\begin{block}{Prefix Sum}
+		We could define $PSA_i\gets\sum_{k=0}^iA_k$, $PSB_j\gets\sum_{l=0}^jB_l$.\pause
+		
+		If $\forall i\in A, i\geq 0\land\forall i\in B, i\geq 0$, then it's obviously that the prefix sum of $A$ and $B$ is increasing.\pause
+	\end{block}
+	
+	Thus, we could calculate the prefix sum of $A$ and $B$ first, and for all $i$ in the prefix sum of $A$, we perform \textsc{Binary Search} to find the max $j$ in the prefix sum of $B$ such that $i+j\leq K$ i.e. $j\leq K-i$.
 }
 
 \end{document}
