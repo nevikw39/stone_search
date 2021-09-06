@@ -279,7 +279,7 @@
 	\end{center}
 }
 
-\subsection{Built-in functions}
+\subsection{Built-in Functions}
 
 \frame
 {
@@ -374,6 +374,27 @@
 
 \frame
 {
+	\frametitle{Small Factor}
+	\framesubtitle{UVa 11621}
+	
+	We could construct $C_{2,3}$ first. For every $m$ inputted, the answer is $*lower\_bound(c.begin(), c.end(), m)$.
+}
+
+\frame
+{
+	\frametitle{Exact Sum}
+	\framesubtitle{UVa 11057}
+	
+	How could we determine whether there exist any exact value $v$ in an ordered sequence $s$??\pause
+	
+	\begin{itemize}
+		\item The range of elements that equal to $v$ is $[lower\_bound(s.begin(), s.end(), v), upper\_bound(s.begin(), s.end(), v))$.\pause
+		\item If the length of range (i.e. $upper\_bound(s.begin(), s.end(), v) - lower\_bound(s.begin(), s.end(), v)$) is greater than $0$, then it means $v$ occurs at least one time.
+	\end{itemize}
+}
+
+\frame
+{
 	\frametitle{Triangles}
 	\framesubtitle{AtCoder Beginner Contest 143 p. D}
 	
@@ -385,7 +406,7 @@
 	
 	Lest we may count duplicate ones, we could enumerate the shorter edges and search the range of the third edge, whose closed left end is upper bound of $b-a$ and opened right end is lower bound of $a+b$.\pause
 	
-	Note that because $c$ should be the longest edge, we mustn't search from $v.begin()$.
+	Note that because $c$ should be the longest edge, we mustn't search from $v.begin()$ but from the next iterator point to $b$.
 }
 
 \frame
@@ -394,7 +415,7 @@
 	\framesubtitle{AtCoder Beginner Contest 172 p. C}
 	
 	\begin{block}{Problem}
-		Find the max $i+j$ such that $\sum_{k=0}^iA_k + \sum_{l=0}^jB_l \leq K$
+		Find the max $i+j$ such that $\sum_{k=0}^iA_k + \sum_{l=0}^jB_l \leq K$.
 	\end{block}
 	
 	\pause
@@ -406,6 +427,60 @@
 	\end{block}
 	
 	Thus, we could calculate the prefix sum of $A$ and $B$ first, and for all $i$ in the prefix sum of $A$, we perform \textsc{Binary Search} to find the max $j$ in the prefix sum of $B$ such that $i+j\leq K$ i.e. $j\leq K-i$.
+}
+
+\subsection{Coordinate Compression}
+
+\frame
+{
+	\frametitle{Coordinate Compression}
+	
+	If the value range of input data is quite enormous and we care about not the exact values but their relative relation, we could apply a technique called \textbf{Coordinate Compression}, mapping the value in codomain into $[0, n)$.
+}
+
+\frame
+{
+	\frametitle{Pseudocode}
+	
+	\begin{algorithmic}
+		\small
+		\Procedure{Coordinate Compression}{$v$}
+    		\State$rk\gets v, cc\gets \{\}$
+			\State\Call{Sort}{rk.begin(), rk.end()}
+			\State\Call{Unique}{rk.begin(), rk.end()}\Comment{Remove duplicate elements in $rk$}
+			\For{$i\in v$}
+				\State$cc.push\_back($\Call{Lower Bound}{$rk.begin(), rk.end(), i$}$ - rk.begin())$
+			\EndFor
+			\State\Return$cc$
+        \EndProcedure
+	\end{algorithmic}
+}
+
+\frame{
+	\frametitle{Examples}
+	
+	\begin{center}
+        \begin{tikzpicture}[scale=0.85, transform shape]
+        	\only<1->{
+        		\foreach \x/\val/\col in {0/8/accent,1/27/nthu,2/2021/secondary,3/110/nthu!50!secondary,4/20/accent!50!nthu,5/110/nthu!50!secondary,6/27/nthu,7/20/accent!50!nthu,8/27/nthu}{
+        			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,0) {\val};
+        		}
+        	}
+        	\only<2>{
+        		\foreach \x/\val/\col in {0/0/accent,1/2/nthu,2/4/secondary,3/3/nthu!50!secondary,4/1/accent!50!nthu,5/3/nthu!50!secondary,6/2/nthu/,7/1/accent!50!nthu,8/2/nthu}{
+        			\node[draw=\col,rectangle, fill=\col!92, minimum size =1cm] (c) at (\x,-2) {\val};
+        		}
+        	}
+		\end{tikzpicture}
+	\end{center}
+}
+
+\frame
+{
+	\frametitle{\ttfamily std::unique()}
+	\framesubtitle{Move duplicate elements in an ordered sequence to end and return new valid end}
+	
+	\lstinputlisting[language=C++, firstline=15, lastline=17]{08_coordinate_compression.cpp}
 }
 
 \end{document}
