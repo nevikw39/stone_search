@@ -480,7 +480,27 @@
 	\frametitle{\ttfamily std::unique()}
 	\framesubtitle{Move duplicate elements in an ordered sequence to end and return new valid end}
 	
-	\lstinputlisting[language=C++, firstline=15, lastline=17]{08_coordinate_compression.cpp}
+	\lstinputlisting[language=C++, firstline=15, lastline=17]{10_coordinate_compression.cpp}
+}
+
+\frame
+{
+	\frametitle{Reorder Cards}
+	\framesubtitle{AtCoder Beginner Contest 213 p. C}
+	
+	\begin{quote}
+		``It can be proved that these positions are uniquely determined without depending on the order in which the operations are done.''
+	\end{quote}
+	
+	\pause
+	
+	Hence, rows and columns could be reordered separately.\pause
+	
+	It's obvious that any operation cannot affect the relative position of cards.\pause
+	
+	At the end of process, the coordinate of cards must be in $[1, n]$.\pause
+	
+	Voil\`{a}! All we have to do is to perform coordinate compression in both $x$ and $y$ axis.
 }
 
 \end{document}
