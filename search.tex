@@ -503,4 +503,23 @@
 	Voil\`{a}! All we have to do is to perform coordinate compression in both $x$ and $y$ axis.
 }
 
+\subsection{Binary Search in Function}
+
+\frame
+{
+	It's not hard for us to refer to array as a sort of function.\pause
+	
+	Then if we could perform \textsc{Binary Search} in monotonic array, couldn't we also perform \textsc{Binary Search} in monotonic function??
+}
+
+\frame
+{
+	\frametitle{Buy an Integer}
+	\framesubtitle{AtCoder Beginner Contest 146 p. C}
+	
+	Apparently, $\forall i\geq 0, d(i)\leq d(i+1)$.\pause
+	
+	Therefore, it could be easily proven that $\forall i\geq 0, price(i) = A\times i+B\times d(i) < A\times(i+1)+B\times d(i+1) = price(i+1)$.\pause
+}
+
 \end{document}
