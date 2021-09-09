@@ -142,7 +142,7 @@
 	\end{flushright}
 }
 
-\subsection{Typical Approach}
+\subsection{Implementation}
 
 \frame
 {
@@ -226,7 +226,7 @@
 	\end{center}
 }
 
-\subsection{Alternative Approach}
+\subsubsection{Alternative Approach}
 
 \frame
 {
@@ -429,7 +429,7 @@
 	Thus, we could calculate the prefix sum of $A$ and $B$ first, and for all $i$ in the prefix sum of $A$, we perform \textsc{Binary Search} to find the max $j$ in the prefix sum of $B$ such that $i+j\leq K$ i.e. $j\leq K-i$.
 }
 
-\subsection{Coordinate Compression}
+\subsubsection{Useful Technique: Coordinate Compression}
 
 \frame
 {
@@ -520,6 +520,76 @@
 	Apparently, $\forall i\geq 0, d(i)\leq d(i+1)$.\pause
 	
 	Therefore, it could be easily proven that $\forall i\geq 0, price(i) = A\times i+B\times d(i) < A\times(i+1)+B\times d(i+1) = price(i+1)$.\pause
+}
+
+\section{Binary Search Tree}
+
+\frame
+{
+	\frametitle{Dynamic Problems}
+	
+	Some problems require us not only to answer some queries but also to modify the original data alternately.
+	
+	If we sort the data each time we do modification, the time complexity would decline to $O(Q\times N\log N)$.
+	
+	As a result, we need some data structure to avoid that.
+}
+
+\frame
+{
+	\frametitle{Self-Balancing Binary Search Tree}
+	
+	\begin{description}
+		\item[Tree] is a kind of abstract data type on which we could easily insert or traverse.\pause
+		\item[Binary Tree] is a kind of rooted tree that each node could have at most two child nodes.\pause
+		\item[Binary Search Tree] is a kind of binary tree where the value of internal node always greater than all values in its left subtree and less than all values in its right subtree.\pause
+		\item[Self-Balancing Binary Search Tree] is a BST which could balance its height by change root and/or rotating so that the max hegiht won't exceed $O(\log N)$.
+	\end{description}
+}
+
+\subsection{Built-in Classes}
+
+\subsubsection{std::set<>}
+
+\frame
+{
+	\frametitle{Set in Math \& C++}
+	
+	In math:
+	\begin{itemize}
+		\item<1-> A set is unordered; that is, $\{8, 27\} = \{27, 8\}$.
+		\item<2-> Each element in set should be unique.
+	\end{itemize}
+	
+	In C++:
+	\begin{itemize}
+		\item<1-> Because the order of set is relevant, we could choose a unique order for representation. In the set of C++, the elements are sorted by their relation.
+		\item<2-> Each element in set should be unique.
+	\end{itemize}
+}
+
+\frame
+{
+	\frametitle{Usage}
+	
+	Like \texttt{std::vector<>}, \texttt{std::set<>} is a kind of template class container in C++ Standard Template Library.
+	
+	The most difference is that we couldn't use \texttt{[]} operator to get the access of elements.
+	
+	In addition, We could still use iterators to traverse all elements, but the iterators are bidirectional, which means they doesn't support \texttt{+ n}, \texttt{- n} operations.
+}
+
+\frame
+{
+	\frametitle{Usage (cont.)}
+	
+	\begin{description}
+		\item[\ttfamily s.insert()] Add a new element.
+		\item[\ttfamily s.erase()] Erase a element by its value or iterator.
+		\item[\ttfamily s.find()] If the value exists in the set then return its iterator, else return \texttt{s.end()}.
+		\item[\ttfamily s.lower\_bound()] The specific version of \texttt{std::lower\_bound()}.
+		\item[\ttfamily s.upper\_bound()] The specific version of \texttt{std::upper\_bound()}.
+	\end{description}
 }
 
 \end{document}
