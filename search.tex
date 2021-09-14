@@ -567,7 +567,7 @@
 	
 	In math:
 	\begin{itemize}
-		\item<1-> A set is unordered; that is, $\{8, 27\} = \{27, 8\}$.
+		\item<1-> The ordering of a set doesn't matter; that is, $\{8, 27\} = \{27, 8\}$.
 		\item<2-> Each element in set should be unique.
 	\end{itemize}
 	
@@ -595,11 +595,21 @@
 	
 	\begin{description}
 		\item[\ttfamily s.insert()] Add a new element.
-		\item[\ttfamily s.erase()] Erase a element by its value or iterator.
-		\item[\ttfamily s.find()] If the value exists in the set then return its iterator, else return \texttt{s.end()}.
+		\item[\ttfamily s.erase()] Erase an element by its value or iterator.
+		\item[\ttfamily s.find()] If the element exists in the set then return its iterator, else return \texttt{s.end()}.
 		\item[\ttfamily s.lower\_bound()] The specific version of \texttt{std::lower\_bound()}.
 		\item[\ttfamily s.upper\_bound()] The specific version of \texttt{std::upper\_bound()}.
 	\end{description}
+}
+
+\frame
+{
+	\frametitle{Problems to Practice}
+	
+	\begin{itemize}
+		\item AtCoder Beginner Contest 164 p. C - gacha
+		\item AtCoder Beginner Contest 073 p. C - Write and Erase
+	\end{itemize}
 }
 
 \frame
@@ -613,6 +623,45 @@
 		\item We could find the greatest cut mark on its left and the least one on its right.\pause
 		\item Be sure to insert $0$ and $L$ first so that we could avoid boundary  conditions.
 	\end{itemize}
+}
+
+\subsubsection{std::map<,>}
+
+\frame
+{
+	\frametitle{Map, dictionary or associative array}
+	
+	Sometimes, we need to store extra values related to the nodes in a binary search tree.
+	
+	\texttt{std::map<,>} is a C++ STL container that allow us to store data in that way.
+	
+	The data used to build binary search tree are called \textbf{keys}, and the extra data related to some keys are called \textbf{values}.
+	
+	In fact, a \texttt{std::set<>} could be deemed \texttt{std::map<,>} without \textbf{values} the extra data.
+}
+
+\frame
+{
+	\frametitle{Usage}
+	
+	Just like \texttt{std::set<>}, the type of \textbf{key} or \textbf{value} could be any type if it supports \texttt{<, ==} operations.
+	
+	We could use \texttt{[]} operator to access the \textbf{value} of a \textbf{key}.
+	
+	Iterators also work with \texttt{std::map<,>}, and the key is \texttt{itr->first} while the value is \texttt{itr->second}.
+}
+
+\frame
+{
+	\frametitle{Usage (cont.)}
+	
+	\begin{description}
+		\item[\ttfamily m[{]}] Return the reference to the \textbf{value} of a \textbf{key}.
+		\item[\ttfamily m.erase()] Erase an element by its \textbf{key} or iterator.
+		\item[\ttfamily m.find()] If the key exists in the map then return its iterator, else return \texttt{s.end()}.
+		\item[\ttfamily m.lower\_bound()] The specific version of \texttt{std::lower\_bound()}.
+		\item[\ttfamily m.upper\_bound()] The specific version of \texttt{std::upper\_bound()}.
+	\end{description}
 }
 
 \end{document}
