@@ -557,9 +557,7 @@
 	\end{description}
 }
 
-\subsection{Built-in Classes}
-
-\subsubsection{std::set<>}
+\subsection{std::set<>}
 
 \frame
 {
@@ -625,7 +623,7 @@
 	\end{itemize}
 }
 
-\subsubsection{std::map<,>}
+\subsection{std::map<,>}
 
 \frame
 {
@@ -662,6 +660,61 @@
 		\item[\ttfamily m.lower\_bound()] The specific version of \texttt{std::lower\_bound()}.
 		\item[\ttfamily m.upper\_bound()] The specific version of \texttt{std::upper\_bound()}.
 	\end{description}
+}
+
+\frame
+{
+	\frametitle{Problems to Practice}
+	
+	\begin{itemize}
+		\item UVa 10420 - List of Conquests
+		\item UVa 10226 - Hardwood species
+		\item UVa 12250 - Language Detection
+		\item AtCoder Beginner Contest 155 p. C - Poll
+		\item AtCoder Beginner Contest 137 p. C - Green Bin
+	\end{itemize}
+}
+
+\subsection{std::multiset<>, std::multimap<,>}
+
+\frame
+{
+	\frametitle{\ttfamily std::multiset<>, std::multimap<,>}
+	
+	The containers that accept duplicate keys.
+	
+	Note that we cannot use \texttt{[]} operator in \texttt{std::multimap<,>}.
+}
+
+\section{Hash Functions \& Tables}
+
+\frame
+{
+	\frametitle{Hash Functions}
+	
+	A \textsc{Hash Function} is a function that map some data into value in fixed \textit{range}.
+	
+	The \textit{range} of inputted data may be large, even infinite, whereas the \textit{range} of \textsc{Hash Function} is fixed.
+	
+	As a consequence, when it come to searching, instead of searching the whole \textit{range} of inputted data, we could search in the \textit{range} of \textsc{Hash Function}.
+}
+
+\frame
+{
+	\frametitle{Hash Functions (cont)}
+	
+	Note that on top of the fact that \textsc{Hash Function} may not hold monotonicity, we could only search whether the \textit{key} exist.
+	
+	In addition, since the \textit{range} of \textsc{Hash Function} is finite, the \textit{hash values} of different \textit{key} may be the same, which is called \textsc{Collision}.
+}
+
+\frame
+{
+	\frametitle{Hash Container}
+	
+	C++ STL provides \texttt{unordered\_set} and \texttt{unordered\_map} which is the hash version of \texttt{set} and \texttt{map} respectively.
+	
+	The usage is mostly the same, the main difference is that unordered container cannot perform \textsc{Binary Search}.
 }
 
 \end{document}
