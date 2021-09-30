@@ -435,10 +435,14 @@
 	\framesubtitle{AtCoder Beginner Contest 220 p. C}
 	
 	\begin{block}{Problem}
-		Consider $B$ to be a infinity sequence where $B_i = A_{i\bmod N}$.
+		Consider $B$ to be an infinity sequence where $B_i = A_{i\bmod N}$.
 		
 		Find the min $i$ such that $\sum_{k=0}^iB_k > X$.
 	\end{block}
+	
+	\pause
+	
+	Since $X$ may be enormous, we could calculate $\lfloor\frac{X}{\sum A}\rfloor$ and binary search $X\pmod{\sum A}$ in the prefix sum of $A$.
 }
 
 \subsubsection{Useful Technique: Coordinate Compression}
