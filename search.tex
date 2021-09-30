@@ -420,13 +420,25 @@
 	
 	\pause
 	
-	\begin{block}{Prefix Sum}
+	\begin{block}{Prefix sum}
 		We could define $PSA_i\gets\sum_{k=0}^iA_k$, $PSB_j\gets\sum_{l=0}^jB_l$.\pause
 		
 		If $\forall i\in A, i\geq 0\land\forall i\in B, i\geq 0$, then it's obviously that the prefix sum of $A$ and $B$ is increasing.\pause
 	\end{block}
 	
 	Thus, we could calculate the prefix sum of $A$ and $B$ first, and for all $i$ in the prefix sum of $A$, we perform \textsc{Binary Search} to find the max $j$ in the prefix sum of $B$ such that $i+j\leq K$ i.e. $j\leq K-i$.
+}
+
+\frame
+{
+	\frametitle{Long Sequence}
+	\framesubtitle{AtCoder Beginner Contest 220 p. C}
+	
+	\begin{block}{Problem}
+		Consider $B$ to be a infinity sequence where $B_i = A_{i\bmod N}$.
+		
+		Find the min $i$ such that $\sum_{k=0}^iB_k > X$.
+	\end{block}
 }
 
 \subsubsection{Useful Technique: Coordinate Compression}
