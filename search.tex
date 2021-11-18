@@ -530,12 +530,34 @@
 
 \frame
 {
+	\frametitle{Factory Machines}
+	\framesubtitle{CSES Problem Set 1620}
+	
+	It's easy to calculate the number of products that could be made in the given time.\pause.
+	
+	Consider the boolean function $f(r)$ whether $t$ products could be made in $r$ unit of time.\pause
+	
+	Since it's monotonic, we could perform binary search to find the minimum $r$ such that $f(r)$ to be true.
+}
+
+\frame
+{
+	\frametitle{Array Division}
+	\framesubtitle{CSES Problem Set 1085}
+	
+	It's much more easy to determine if the array could be divided into not greater than $k$ subarrays whose sum were all less than $r$.\pause
+	
+	Since it holds monotonic, we could perform binary search to find the minimum $r$.
+}
+
+\frame
+{
 	\frametitle{Buy an Integer}
 	\framesubtitle{AtCoder Beginner Contest 146 p. C}
 	
 	Apparently, $\forall i\geq 0, d(i)\leq d(i+1)$.\pause
 	
-	Therefore, it could be easily proven that $\forall i\geq 0, price(i) = A\times i+B\times d(i) < A\times(i+1)+B\times d(i+1) = price(i+1)$.\pause
+	Therefore, it could be easily proven that $\forall i\geq 0, price(i) = A\times i+B\times d(i) < A\times(i+1)+B\times d(i+1) = price(i+1)$.
 }
 
 \frame
