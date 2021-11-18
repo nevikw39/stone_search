@@ -9,8 +9,8 @@ Here is the [presentation](https://github.com/nevikw39/stone_search/blob/master/
 
 ## Binary Search
 
-- [UVa 11621: Small Factor]()
-- [UVa 11057: Exact Sum]()
+- [UVa 11621: Small Factor](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=2668)
+- [UVa 11057: Exact Sum](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=1998)
 - [AtCoder Beginner Contest 143 p. D - Triangles](https://atcoder.jp/contests/abc143/tasks/abc143_d)
 - [AtCoder Beginner Contest 172 p. C - Tsundoku](https://atcoder.jp/contests/abc172/tasks/abc172_c)
 - [AtCoder Beginner Contest 220 p. C - Long Sequence](https://atcoder.jp/contests/abc220/tasks/abc220_c)
@@ -21,6 +21,8 @@ Here is the [presentation](https://github.com/nevikw39/stone_search/blob/master/
 
 ### Binary Search in Functions
 
+- [CSES Problem Set 1620: Factory Machines](https://cses.fi/problemset/task/1620)
+- [CSES Problem Set 1085: Array Division](https://cses.fi/problemset/task/1085)
 - [AtCoder Beginner Contest 146 p. C - Buy an Integer](https://atcoder.jp/contests/abc146/tasks/abc146_c)
 - [AtCoder Beginner Contest 174 p. E - Logs](https://atcoder.jp/contests/abc174/tasks/abc174_e)
 
@@ -32,10 +34,8 @@ Here is the [presentation](https://github.com/nevikw39/stone_search/blob/master/
 
 ## `std::map<,>`
 
-- [UVa 10420: List of Conquests]()
-- [UVa 10226: Hardwood species]()
-- [UVa 12250: Language Detection]()
+- [UVa 10420: List of Conquests](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=1361)
+- [UVa 10226: Hardwood species](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=1167)
+- [UVa 12250: Language Detection](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=3402)
 - [AtCoder Beginner Contest 155 p. C - Poll](https://atcoder.jp/contests/abc155/tasks/abc155_c)
 - [AtCoder Beginner Contest 137 p. C - Green Bin](https://atcoder.jp/contests/abc137/tasks/abc137_c)
-
-## Homework
